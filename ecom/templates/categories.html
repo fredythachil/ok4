@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% block content %}
+
+{% load static %}
+
+ <div class="vegetables_section layout_padding" >
+    <div class="container">
+      <div class="image_2"><img src="{% static 'images/img-2.png' %}"></div>
+      <h1 class="about_taital">Categories</h1>
+      <p class="lorem_text">Reader will be distracted by the readable content of a</p>
+      <div class="vegetables_section_2 layout_padding">
+        <div class="row">
+          {% for i in categories %}
+          <div class="col">
+
+            <div class="box_section">
+
+              <div class="image_4"><img src="{{i.image.url}}" style="width:350px;height:350px;" id="categories"></div>
+              <h2 class="dolor_text">Rs<span style="color: #ebc30a;">10</span></h2>
+              <h2 class="dolor_text">{{i.name}}</h2>
+              <h2 class="dolor_text_1">{{i.price}}</h2>
+              <p class="tempor_text">{{i.discription}} </p>
+              <div class="buy_bt_1 active"><a href="{% url 'ecomapp:cat_product' i.slug %}">View Products</a></div>
+
+            </div>
+
+
+
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+ </div>
+
+     {% endblock %}

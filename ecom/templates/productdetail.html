@@ -1,0 +1,94 @@
+
+{% include 'nav.html' %}
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product Details</title>
+     <link rel="icon" type="image/x-icon" href="{% static 'images/img-2.png' %}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <!-- CSS -->
+    <link href="{% static 'css/prstyle.css' %}" rel="stylesheet">
+    <meta name="robots" content="noindex,follow" />
+
+  </head>
+
+  <body>
+
+  {% if products %}
+    <main class="container">
+
+
+      <div class="left-column">
+        <img data-image="red" class="active" src="{{products.image.url}}" alt="" style="width:350px;height:350px;">
+      </div>
+
+
+
+      <div class="right-column">
+        <a href="#"></a>
+
+
+        <div class="product-description">
+          <span>{{product.Categories.name}}</span>
+          <h1>{{products.name}}</h1>
+          <p>{{products.discription}}</p>
+        </div>
+
+       {% endif %}
+
+
+
+
+        <div class="product-price">
+          <span>Rs:{{products.price}}</span>
+            {% if products.stock <= 0 %}
+            <p style="color:red;"><b>Out Of Stock</b></p>
+            {% else %}
+          <a href="{% url 'cart:add_cart' products.id%}" class="cart-btn">Add to cart</a>
+
+        </div>
+
+
+
+  {% endif %}
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="{% static 'js/prscript.js' %}" charset="utf-8"></script>
+  </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

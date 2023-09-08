@@ -1,0 +1,34 @@
+
+{% include 'nav.html' %}
+{% load static %}
+
+
+{% if search %}
+
+<center><b style="font-weight: bold;font-size: x-large">Search Result For {{search}}</b></center>
+
+
+    <div class="vegetables_section_2 layout_padding">
+        <div class="row">
+          {% for i in results %}
+          <div class="col-sm-4">
+
+            <div class="box_section">
+
+              <div class="image_4"><img src="{{i.image.url}}" style="width:350px;height:350px;"></div>
+              <h2 class="dolor_text"> <span style="color: #ebc30a;">{{i.name}}</span></h2>
+              <h2 class="dolor_text"> Rs {{i.price}}</h2>
+
+              <div class="buy_bt_1 active"><a href="{% url 'ecomapp:productdetail' i.categories.slug i.slug %}">Buy Now</a></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+
+    {% else %}
+
+        <center><b style="font-weight: bold;font-size: x-large">search something bruh...............</b></center>
+
+
+     {% endif %}
